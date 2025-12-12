@@ -1,0 +1,20 @@
+@startuml
+left to right direction
+actor "Membro do Clube" as M
+actor "Administrador" as A
+
+rectangle "Sistema do Clube" {
+  M -- (Consultar Catálogo)
+  M -- (Realizar Empréstimo)
+  M -- (Devolver Livro)
+  M -- (Consultar Meus Empréstimos)
+  M -- (Ver Livros Mais Populares)
+
+  A -- (Cadastrar Livro)
+  A -- (Atualizar Livro)
+  A -- (Remover Livro)
+  A -- (Cadastrar Membro)
+  A -- (Visualizar Relatórios)
+  A -- (Gerenciar Empréstimos)
+}
+@enduml

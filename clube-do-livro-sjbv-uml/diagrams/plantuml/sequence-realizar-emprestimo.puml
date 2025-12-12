@@ -1,0 +1,21 @@
+@startuml
+actor Membro
+participant TelaDeEmprestimo as Tela
+participant ControladorEmprestimo as Controlador
+participant Livro
+participant MembroObj as MembroFicha
+participant RegistroEmprestimo as BD
+
+Membro -> Tela : solicitarEmprestimo(livro)
+Tela -> Controlador : iniciarEmprestimo(livro, membro)
+Controlador -> Livro : verificarDisponibilidade()
+Livro -> Controlador : disponibilidade = true
+Controlador -> MembroFicha : verificarPendencias()
+MembroFicha -> Controlador : pendencias = false
+Controlador -> BD : criarEmprestimo(livro, membro)
+BD -> Controlador : emprestimoCriado
+Controlador -> Livro : atualizarStatus(emprestado)
+Livro -> Controlador : statusAtualizado
+Controlador -> Tela : confirmarEmprestimo()
+Tela -> Membro : exibirSucesso()
+@enduml

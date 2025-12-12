@@ -1,0 +1,42 @@
+@startuml
+class Livro {
+  - id: int
+  - titulo: string
+  - autor: string
+  - genero: string
+  - status: string
+  + verificarDisponibilidade(): boolean
+  + atualizarStatus(novoStatus: string)
+}
+
+class Membro {
+  - id: int
+  - nome: string
+  - email: string
+  - telefone: string
+  + verificarPendencias(): boolean
+}
+
+class Emprestimo {
+  - id: int
+  - dataEmprestimo: Date
+  - dataDevolucaoPrevista: Date
+  - dataDevolucaoReal: Date
+  + registrarDevolucao()
+}
+
+class Catalogo {
+  + listarDisponiveis(): List<Livro>
+  + buscarTitulo(titulo: string): Livro
+}
+
+class Relatorio {
+  + livrosMaisPopulares(): List<Livro>
+  + listarAtrasos(): List<Emprestimo>
+}
+
+Membro "1" -- "0..*" Emprestimo
+Livro "1" -- "0..*" Emprestimo
+Emprestimo "1" o-- "1" Livro
+Emprestimo "1" o-- "1" Membro
+@enduml
