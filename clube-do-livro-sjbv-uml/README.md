@@ -56,9 +56,4 @@ Este repositório contém os diagramas UML preparados para o **Clube do Livro SJ
 - `diagrams/images/*.png` — imagens geradas
 - `README.md` — este arquivo
 
----
 
-Se quiser, eu também:
-- Gerar um ZIP pronto para download.  
-- Criar um PR em um repositório existente (se você me fornecer o link).  
-- Gerar um PowerPoint com os diagramas prontos para apresentação.
